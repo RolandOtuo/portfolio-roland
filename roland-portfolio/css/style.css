@@ -1,5 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
+/*
+  Added some CSS variables too keep track of colors.
+  You could also use this to keep track of specific sizes.
+
+  PS: There may be too many accent colors here.
+  I wonder if you could stick to 1 or 2.
+*/
+:root {
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #bebebe;
+  --tertiary-text-color: #707070;
+  --primary-accent-color: #ed5565;
+  --secondary-accent-color: #48cfad;
+  --tertiary-accetnt-color: #ede355;
+  --primary-background-color: #252627;
+  --secondary-background-color: #181818;
+}
 
 * {
   margin: 0;
@@ -7,555 +24,690 @@
   box-sizing: border-box;
 }
 
-html {
+html,
+body {
   scroll-behavior: smooth;
-  }
+  background-color: var(--primary-background-color);
+  font-family: "Open Sans", sans-serif;
+}
 
-  .container {
-  padding: 0 100px 0 100px;
-  }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-  .logo a {
-    text-transform: none;
-    position: static;
-  }
+h1 {
+  font-size: 20px;
+}
 
-  nav ul,
-  .main-info-section,
-  .work-category {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  }
+h2 {
+  font-family: cursive, serif;
+  color: var(--primary-text-color);
+}
 
-  .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
+h5 {
+  color: var(--secondary-accent-color);
+}
 
-  #navbar{
-    z-index: 10;
-  }
+/* No need to so specific here. */
+h1,
+nav,
+.about-me p {
+  color: var(--tertiary-text-color);
+}
 
-  body {
-    background-color: #252627;
-    font-family: 'Open Sans', sans-serif;
-  }
-
-  header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 20px 0;
-  }
-  .navbar {
-  background-color: #181818;
-  }
-
-  header h1,
-  header a,
-  .text p,
-  .about h1,
-  .skills h1,
-  .work h1,
-  .contact h1 {
-  color: #707070;
-  }
-
-  .skills ul p, h5{
-    display: inline;
-  }
-
-  h5 {
-    color: #48CFAD;
-  }
-  
-  li {
+li {
   list-style: none;
   margin-left: 30px;
-  }
+}
 
-  a {
+/* a {
   text-decoration: none;
-  font-size: .9rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   position: relative;
   top: 50%;
   bottom: 50%;
   transform: translateY(-50%);
-  }
+} */
 
-  nav a:hover {
-    color: #48CFAD;
-    transition: all .5s;
-  }
+.container {
+  padding: 0 100px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
 
-  .main-info-section {
-  height: calc(100vh - 81.6px);
-  }
-  .text {
-  margin-top: 120px;
-  }
-  
-  .text h1 {
-  color: #fff;
+/* 
+  Gave all your icons a little breathing room.
+  I think this makes a huge difference in making the design feel
+  more polished and less claustrophobic.
+
+  The reson I use 8px here is because I like to use a base 8 sizing system.
+  Here are two aticles that explain the benefits.
+
+  The first is a quick synopsis. 2 min read
+  https://ross-gehm.medium.com/the-dividends-of-the-base-8-practice-63710cbbc344
+
+  The second is deep dive into all the benefits.
+  https://medium.com/swlh/the-comprehensive-8pt-grid-guide-aa16ff402179
+
+  TLDR: Base 8 helps you make less decisions around sizing and padding.
+  Challenge ⚠️: convert your design to base 8.
+*/
+.fab, .far, .fas {
+  padding: 8px;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar {
+  background-color: var(--secondary-background-color);
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+}
+
+
+nav {
+  padding: 16px 0;
+}
+nav a:hover {
+  color: var(--secondary-accent-color);
+  transition: all 0.5s;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.main-info-section,
+.work-category {
+  display: flex;
+  flex-wrap: no-wrap;
+  align-items: center;
+  justify-content: space-between;
+  /* Added a gap here to give a minimum amount of horizontal and veritcal space */
+  /* This espeically helps when the buttons wrap giving them some breathing room vertically */
+  gap: 16px;
+  padding-bottom: 40px;
+}
+
+.main-info-section {
+  /* magic number 81.6, not sure how you came accross that value */
+  /* height: calc(100vh - 81.6px); */
+  margin-top: 72px;
+  flex-wrap: nowrap;
+}
+
+.about-me h1 {
+  color: var(--primary-text-color);
   font-size: 3rem;
-  cursor: context-menu;
-  }
+  cursor: default;
+}
 
-  .text span {
+.about-me h1 div {
+  display: inline;
+}
+
+.about-me .no-break {
+  white-space: nowrap;
+}
+
+/* I think this takes away from the effect a little */
+/* .about-me h1 span:hover {
+  color: var(--secondary-accent-color);
+  transition: all 0.5s;
+} */
+
+.about-me h1 span {
   display: inline-block;
-  }
+}
 
-  span:hover {
-  color: #48CFAD;
-  transition: all .5s;
-  }
+.about-me h1 span.name {
+  color: var(--primary-accent-color);
+}
 
-  span.name {
-  color: #ED5565;
-  }
-  
-  span.m-left {
+.about-me h1 span.m-left {
   margin-left: -10px;
-  }
-  
-  .text p {
+}
+
+.about-me p {
   letter-spacing: 3px;
   word-spacing: 10px;
-  font-size: .8rem;
-  }
+  font-size: 0.8rem;
+}
 
-  .text a {
+.about-me a {
   padding: 12px 25px;
   background-color: none;
-  border: 3px solid #ED5565;
-  color: #ED5565;
-  font-size: .8rem;
+  border: 3px solid var(--primary-accent-color);
+  color: var(--primary-text-color);
+  font-size: 0.8rem;
   letter-spacing: 2px;
-  position: relative;
-  top: 80px;
-  overflow: hidden;
-  transition: .5s;
   display: inline-block;
-  }
+}
 
-  .text a:hover {
-  color: #fff;
-  }
+.about-me a:hover {
+  color: var(--primary-accent-color);
+}
 
-  .text a::before {
-  content: ' ';
-  background-color: #ED5565;
-  position: absolute;
-  left: 0;
-  top: 0;
+/* more verbose naming */
+.call-to-action {
+  padding-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+}
+
+/* Replaced your shadow here. It felt a bit too dark and
+  didn't fit in with the rest of the shadows on the page.
+
+  Some really nice shadow code examples here btw.
+  https://getcssscan.com/css-box-shadow-examples
+*/
+
+.profile-image img {
   width: 100%;
-  height: 0%;
-  z-index: -1;
-  transition: 5s;
-  }
-
-  .text a:hover::before {
-  height: 100%;
-  }
-  
-  .profile-image img {
-  width: 450px;
+  max-width: 450px;
   margin-top: 50px;
-  border:solid black 1px; 
-	padding: 2px;
-	transform: skew(-0.5deg, 1deg);
-	box-shadow: 6px 7px 8px;
-  }
-  
-  .about {
-  height: 100vh;
-  margin-top: 100px;
-  }
-  
-  .about h1,
-  .work h1 {
+  /* border: solid black 1px; */
+  padding: 2px;
+  transform: skew(-0.5deg, 1deg);
+  /* box-shadow: 6px 7px 8px; */
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.about,
+.skills,
+.work,
+.contact {
+  position: relative;
+  padding-top: 24px;
+  padding-bottom: 200px;
+}
+
+/* override bottom padding */
+.contact {
+  padding-bottom: 48px;
+}
+
+.about h1,
+.work h1 {
+  padding-top: 40px;
   font-size: 10rem;
   z-index: 0;
-  opacity: .1;
-  }
-  
-  .about-me-info {
+  opacity: 0.1;
+}
+
+.about-me-info {
   max-width: 900px;
-  background-color: #252627;
-  box-shadow: 0 0 1.2rem rgba(0,0,0,.25);
+  background-color: var(--primary-background-color);
+  box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.25);
   padding: 50px;
   position: relative;
-  top: -70px;
+  top: -60px;
   left: 50%;
   right: 50%;
   transform: translateX(-50%);
   z-index: 1;
-  }
-  
-  .about-me-info p,
-  .skills p {
+}
+
+.about-me-info p,
+.skills p {
   font-size: 1.3rem;
-  color: #BEBEBE;
-  }
+  color: var(--secondary-text-color);
+}
 
-  .about-me-info a {
-    font-family: cursive;
-    color: #ede355;
-  }
+.about-me-info a {
+  font-family: cursive, serif;
+  color: var(--tertiary-accetnt-color);
+}
 
-  .about-me-info a:hover {
-    border: 1px solid #ED5565
-  }
-  
-  .about-me-info p:nth-child(2),
-  .about-me-info p:last-child {
+/* This felt unessisary to me aesthetically */
+/* .about-me-info a:hover {
+  border: 1px solid #ed5565;
+} */
+
+.about-me-info p:nth-child(2),
+.about-me-info p:last-child {
   margin-top: 30px;
-  }
-  
-  .about img {
+}
+
+.about img {
   width: 300px;
-  position: relative;
-  top: -300px;
-  left: calc(100% - 100px);
-  right: calc(100% - 100px);
-  transform: translateX(calc(-100% + 100px));
-  }
-  
-  .skills {
-  height: 100vh;
-  margin-left: 90px;
-  }
-  
-  .skills h1,
-  .contact h1 {
+  position: absolute;
+  margin-top: -300px;
+  right: 0;
+}
+
+.skills h1,
+.contact h1 {
+  padding-top: 40px;
   text-align: right;
   font-size: 10rem;
-  opacity: .1;
-  }
+  opacity: 0.1;
+}
 
-  .skills-info {
+.skills-info {
   font-size: 1.4rem;
-  color: #BEBEBE;
-  max-width: 800px;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  transform: translateX(-50%);
+  color: var(--secondary-text-color);
   text-align: center;
-  margin-bottom: 50px;
-  }
+  padding-bottom: 50px;
+}
 
-  .html {
+#skills {
+  top: -100px !important;
+}
+
+.skills ul {
+  display: block;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skills ul li {
+  margin-left: 0;
   display: flex;
   flex-wrap: wrap;
+  padding-bottom: 16px;
+}
+
+.skills ul li h5 {
+  flex-shrink: 0;
+}
+
+.skills ul p {
+  font-size: 1rem;
+}
+
+/* Name change just to be clearer. */
+.wrapper {
+  display: flex;
+  flex-wrap: no-wrap;
+  align-items: center;
   justify-content: center;
   margin-bottom: 40px;
-  }
-  
-  div[class^='tag-'] {
+}
+
+/* Using the wildcard selector here felt unnessesary */
+.wrapper .tag {
+  /* stops the tag from shrinking so we can always read it */
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  width: 180px;
   clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 0% 50%, 0% 0%);
-  width: 120px;
   height: 30px;
   background-color: #501e23;
   margin-right: 30px;
-  }
-  
-  div[class^='tag-'] p {
-  color: #fff;
+}
+
+.wrapper .tag p {
+  color: var(--primary-text-color);
   text-align: left;
-  padding-left: 10px;
+  padding: 0 30px 0 10px;
   font-size: 1.1rem;
-  padding-top: 3px;
-  }
-  
-  .progressbar {
+}
+
+.wrapper .tag i {
+  padding-right: 10px;
+}
+
+.progressbar {
+  /* Enables shrinking on the progress bar so that it can shrink
+    while the tags stay the same size.
+  */
+  flex-shrink: 1;
   position: relative;
   width: 600px;
   height: 20px;
-  border: 2px solid #48CFAD;
+  border: 2px solid var(--secondary-accent-color);
   border-radius: 20px;
-  margin-top: 7px;
-  }
-  
-  div[class^='bar-'] {
+  margin-top: 8px;
+}
+
+/* Nice solution 👍 */
+div[class^="bar-"] {
   position: absolute;
-  background-color: #48CFAD;
+  background-color: var(--secondary-accent-color);
   height: 10px;
   border-radius: 20px;
-  margin: 2.7px;
-  }
-  
-  .bar-html,
-  .bar-css,
-  .bar-javascript,
-  .bar-react {
-  width: calc(0 - 6px);
-  }
-  
-  .work-category button {
+  margin: 3px;
+}
+
+.bar-html,
+.bar-css,
+.bar-javascript,
+.bar-react {
+    /* Not sure why you were calculating this.
+      Width can't be negative.
+    */
+  width: 0px;
+}
+
+.work-category button {
   text-transform: capitalize;
-  border: 3px solid #ED5565;
+  border: 3px solid var(--primary-accent-color);
   padding: 15px 30px;
   border-radius: 50px;
-  color: #ED5565;
+  color: var(--primary-accent-color);
   font-size: 1.1rem;
   letter-spacing: 1px;
-  background-color: #252627;
+  background-color: var(--primary-background-color);
   outline: none;
   cursor: pointer;
-  }
+}
 
-  div[class^='category-'] {
+/*  no longer needed */
+/* div[class^="category-"] {
   margin-top: 50px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax( 350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 20px;
-  }
-  
-  .work a {
+} */
+
+/* .work a {
   justify-self: center;
   position: relative;
   display: inline-block;
-  }
-  .work-category .active {
-  background-color: #ED5565;
-  }
-  
-  button.active {
-  color: #fff;
+} */
+.work-category .active {
+  background-color: var(--primary-accent-color);
+  color: var(--primary-text-color);
 }
-  .work a img {
+
+/* .work a img {
   width: 350px;
   justify-self: center;
-  }
+} */
 
-  div.hideCategory {
-  display: none;
-  }
-  .showCategory {
-  display: block;
-  }
-  
-  .contact {
-  margin-top: 50px;
-  }
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+}
 
-  .sci {
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    right: 100px;
-    margin-bottom: 20px;
-  }
+.social li {
+  list-style: none;
+}
 
-  .sci li {
-    list-style: none;
-  }
+.social li a {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+  border: 1px solid var(--primary-accent-color);
+  margin: 10px 0 0;
+  font-size: xx-large;
+  cursor: pointer;
+  color: var(--primary-text-color);
+}
 
-  .sci li a {
-    position: relative;
-    display: grid;
-    place-items: center;
-    width: 50px;
-    height: 50px;
-    text-decoration: none;
-    border: 1px solid #ED5565;
-    margin: 10px 0 0;
-    font-size: xx-large;
-    cursor: pointer;
-    margin-bottom: 50px;
-    color: #fff;
-  }
+.social li a:hover {
+  background: var(--primary-text-color);
+  color: black;
+}
 
-  .sci li a:hover {
-    background: #fff;
-    color: rgb(0, 0, 0);
-  }
+.social li a img {
+  max-width: 20px;
+  filter: invert(1);
+  mix-blend-mode: difference;
+}
 
-  .sci li a img {
-    max-width: 20px;
-    filter: invert(1);
-    mix-blend-mode: difference;
-  }
+.work i,
+.skills i,
+.main-info-section i {
+  color: var(--tertiary-accetnt-color);
+}
 
-  
-  #resume {
-    cursor: pointer;
-    transition: 0.8s;
-    position: relative;
-    overflow: hidden;
-    color: #fff;
-  }
-  
-  
+/**********
+This just feels a little over the top to me.
+Also, your resume and contact buttons work slightly different.
+I think it's better to just remove the animation here and keep it simple.
 
-  #resume::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    z-index: -1;
-    transition: 0.8s;
-    bottom: 0;
-    border-radius: 10% 10% 0 0;
-    height: 180%;
-  }
+#resume {
+  cursor: pointer;
+  position: relative;
+  color: #fff;
+}
 
-  #resume:hover{
-  color: #ED5565;
-  }
+#resume::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  z-index: -1;
+  transition: 0.8s;
+  bottom: 0;
+  border-radius: 10% 10% 0 0;
+  height: 180%;
+}
 
-  #resume:hover::before{
-    height: 0%;
-  }
+#resume:hover {
+  color: #ed5565;
+}
 
+#resume:hover::before {
+  height: 0%;
+}
+**********/
 
-  .card{
-      display: inline-block;
-      box-shadow: 2px 2px 20px black;
-      border-radius: 5px; 
-      margin: 2%;
-      cursor: pointer;
-   }
+/* Important needed here because we're overriding a named property now. */
+.hide-category {
+  display: none !important;
+}
 
-   .card:hover {
-    transform: translateY(-0.5%);
-    box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5);
-   }
+/* Our card list is now a grid */
+.show-category {
+  display: grid !important;
+}
 
-  .image img{
-    width: 100%;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-  }
+.card-list {
+  /* Moved your grid logic here and added a stretch
+    to help the cards fit more screen sizes.
+  */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+}
 
-  .title{
-    text-align: center;
-    padding: 10px;
-  }
+.card {
+  display: inline-block;
+  /* box-shadow: 2px 2px 20px black; */
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border-radius: 5px;
+  /* Percentages aren't great for margin/padding. Also, uing padding is the
+    right thing to do in almost every case. See if you can default to
+    using padding instead of margin.
 
-  .work i, .skills i, .main-info-section i {
-    color: #ede355;
-  }
+    In this case however, we use a margin to space the cards from each other.
+  */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
 
-  h1{
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 40px, 
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  /* box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5); */
+}
+
+.card img {
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+  padding: 24px;
+  text-align: center;
+  padding-top: 8px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.card-content p {
+  color: var(--tertiary-accetnt-color);
+}
+
+/* Removed the transition here as well but added a transition to the card. */
+.card-content button {
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--primary-accent-color);
+  background: none;
+  padding: 10px 20px;
   font-size: 20px;
+  /* You aren't importing this font and I don't think it's nessisary. */
+  /* font-family: "montserrat", sans-serif; */
+  /* transition: 0.8s; */
+  position: relative;
+  color: var(--primary-text-color);
+}
+
+.card-content button:hover {
+  color: var(--primary-accent-color);
+  cursor: pointer;
+}
+
+/* Removed the animation here as well to keep things simple */
+/* .card-content button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: #501e23;
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+} */
+
+@media screen and (max-width: 700px) {
+  .container {
+    padding: 0 48px;
   }
 
-  .des{
-    padding: 3px;
-    text-align: center;
-    padding-top: 10px;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-  }
-  
-  .des p{
-    color: #ede355;
-  }
-
-  .des button{
-    margin: 10px;
-    border-radius: 5px;
-    border: 1px solid  #ED5565;
-    background: none;
-    padding: 10px 20px;
-    font-size: 20px;
-    font-family: "montserrat";
-    transition: 0.8s;
+  .social {
     position: relative;
-    overflow: hidden;
-    color: #fff;
-  }
-
-  .des button:hover{
-    color:  #ED5565;
-    cursor: pointer;
-  }
-
-  .des button::before{
-    content: "";
-    position: absolute;
     left: 0;
-    width: 100%;
-    height: 0%;
-    background: #501e23;
-    z-index: -1;
-    transition: 0.8s;
-    bottom: 0;
-    border-radius: 50% 50% 0 0;
-    height: 180%;
   }
 
-  .des button:hover::before{
-    height: 0%;
+  .social li a {
+    width: 40px;
+    height: 40px;
   }
 
-  h2 {
-    font-family: cursive, Arial, Helvetica, sans-serif;
-    color: white;
+  .social li a img {
+    object-fit: scale-down;
+    width: 24px;
   }
 
-  /* Media Query: Large Smartphones */
-  @media screen and (max-width: 600px) {
-    .text h1 {
-      font-size: 2.5rem;
-    }
+  .social li a i {
+    font-size: 24px;
+  }
+}
 
-    .text a {
-      letter-spacing: 1px;
-      top: 30px;
-    }
+/* Media Query: Large Smartphones */
+@media screen and (max-width: 600px) {
+  nav {
+    font-size: 0.8rem;
+  }
 
-    .about-me-info p, .skills-info {
-      font-size: 1rem;
-      margin-bottom: 0;
-     }
+  .main-info-section {
+    padding-top: 48px;
+  }
 
-    .skills h5,
-    .skills p {
+  .about > h1,
+  .skills > h1,
+  .work > h1,
+  .contact > h1 {
+    font-size: 5rem;
+  }
+
+  .about-me h1 {
+    /* small tweak here to make sure this looks nice on smaller phones */
+    font-size: 2.2rem;
+  }
+
+  .about-me-info {
+    top: -32px;
+  }
+
+  .about-me-info p,
+  .skills-info {
     font-size: 1rem;
-    }
+    margin-bottom: 0;
+  }
 
-    .skills h5,
-    .skills ul p {
+  .skills h5,
+  .skills p {
+    font-size: 1rem;
+  }
+
+  .skills h5,
+  .skills ul p {
     font-size: 1rem;
     margin-left: 0px;
-    }
+  }
 
-    .profile-image img{
-      margin: 10px;
-      width: 15rem;
-    }
+  .profile-image img {
+    max-width: 320px;
+  }
 
-    .profile-image{
-      margin-left: 100px;
-    }
+  /* give our card list a little extra breathing room */
+  .card-list {
+    padding: 0 16px;
+  }
 
-    .sci {
-      position: relative;
-    }
+  /* Converts flex into column so buttons stack vercially on mobile */
+  .main-info-section,
+  .work-category {
+    flex-direction: column;
+  }
 
-    .container {
-      padding: 0 10px 0 10px;
-      
-    }
-    
-    .about-me-info{
-      left: 70%;
-    }
-
-    .work-category button{
-      padding: 15px 0px;
-      font-size: 1rem;
-    }
-
-    div[class^='category-'] {
-      margin-left: 90px;
-    }
+  /* Base 8 ;) */
+  .container {
+    padding: 0 16px;
   }
   
+
+  /* Shouldn't need this stuff anymore */
+  /* .about-me-info {
+    left: 70%;
+  }
+
+  .card button {
+    padding: 15px 0px;
+    font-size: 1rem;
+  }
+
+  div[class^="category-"] {
+    margin-left: 90px;
+  } */
+}
